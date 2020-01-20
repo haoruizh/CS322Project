@@ -6,7 +6,7 @@ The CS 322 project repository.<br>
 Haorui Zhang<br>
 Jihui.Sheng<br>
 Ke Ma<br>
-
+Yijing Xiao<br>
 
 
 <h4>Description</h4>
