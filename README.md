@@ -7,7 +7,7 @@ Haorui Zhang<br>
 Jihui.Sheng<br>
 Ke Ma<br>
 Yijing Xiao<br>
-
+Jiangquan Li<br>
 
 <h4>Description</h4>
 This project is about developing a chatting software with an chatbot. This project is for CS322 2020 Spring, WSU Pullman.<br>
