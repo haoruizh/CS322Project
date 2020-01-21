@@ -3,15 +3,15 @@ The CS 322 project repository.<br>
 <table width="960px" border="1" align="center">
 <tr>
 <th width="160px" border="1" align="center">Team Name</th>
-<td width="400px" border="1" align="center">Parrots</td>
+<td width="800px" border="1" align="center">Parrots</td>
 </tr>
 <tr>
 <th>Project Name</th>
-<td>ParrotChat</td>
+<td width="800px" border="1" align="center">ParrotChat</td>
 </tr>
 <tr>
 <th>Project repository</th>
-  <td>https://github.com/haoruizh/CS322Project</td>
+  <td width="800px" border="1" align="center">https://github.com/haoruizh/CS322Project</td>
 </tr>
 <tr>
 <th rowspan="7">Group Member</th>
