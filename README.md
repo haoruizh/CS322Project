@@ -4,7 +4,7 @@ The CS 322 project repository.<br>
 <h4>Project Name:</h4> ParrotChat<br>
 <h4>Group Member:</h4>
 Haorui Zhang<br>
-Jihui.Sheng<br>
+Jihui Sheng<br>
 Ke Ma<br>
 Yijing Xiao<br>
 Jiangquan Li<br>
