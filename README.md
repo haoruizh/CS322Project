@@ -2,7 +2,7 @@
 The CS 322 project repository.<br>
 <table border="1">
 <tr>
-<th width="220px" border="1" align="center">Team Name</th>
+<th width="180px" border="1" align="center">Team Name</th>
 <td width="360px" border="1" align="center">Parrots</td>
 </tr>
 <tr>
