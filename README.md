@@ -3,20 +3,19 @@ The CS 322 project repository.<br>
 <table border="1">
 <tr>
 <th>Team Name</th>
-<td>Parrot</td>
+<td>Parrots</td>
 </tr>
 <tr>
-<th>Heading</th>
-<td>row 1, cell 1</td>
-<td>row 1, cell 2</td>
+<th>Project Name</th>
+<td>ParrotChat</td>
 </tr>
 <tr>
-<th>Heading</th>
-<td>row 2, cell 1</td>
-<td>row 2, cell 2</td>
+<th>Group Member</th>
+<td>Names</td>
+<td>EECS account</td>
 </tr>
 </table>
-#<h4>Team Name:</h4> Parrot<br> 
+//<h4>Team Name:</h4> Parrot<br> 
 <h4>Project Name:</h4> ParrotChat<br>
 <h4>Group Member:</h4>
 Haorui Zhang<br>
