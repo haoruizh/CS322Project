@@ -14,4 +14,4 @@ This project is about developing a chatting software with an chatbot. This proje
 <h5>Developing Tool and Language:</h5>
 <b>Source Control:</b> github<br>
 <b>Programming Language:</b> Python<br>
-<b>Developing Tools:</b> Visual Studio<br>
+<b>Developing Tools:</b> Visual Studio Code<br>
