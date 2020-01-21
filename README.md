@@ -10,6 +10,10 @@ The CS 322 project repository.<br>
 <td>ParrotChat</td>
 </tr>
 <tr>
+<th>Project repository</th>
+<td>
+</tr>
+<tr>
 <th rowspan="7">Group Member</th>
 <th>Names</th>
 <th>EECS account</th>
