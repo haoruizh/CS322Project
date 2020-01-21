@@ -2,9 +2,8 @@
 The CS 322 project repository.<br>
 <table border="1">
 <tr>
-<th>Heading</th>
-<td>row 1, cell 1</td>
-<td>row 1, cell 2</td>
+<th>Team Name</th>
+<td>Parrot</td>
 </tr>
 <tr>
 <th>Heading</th>
@@ -17,7 +16,7 @@ The CS 322 project repository.<br>
 <td>row 2, cell 2</td>
 </tr>
 </table>
-<h4>Team Name:</h4> Parrot<br> 
+#<h4>Team Name:</h4> Parrot<br> 
 <h4>Project Name:</h4> ParrotChat<br>
 <h4>Group Member:</h4>
 Haorui Zhang<br>
