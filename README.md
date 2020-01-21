@@ -1,6 +1,6 @@
 # CS322Project
 The CS 322 project repository.<br>
-<table border="1">
+<table width="960px" border="1" align="center">
 <tr>
 <th>Team Name</th>
 <td>Parrots</td>
@@ -16,7 +16,7 @@ The CS 322 project repository.<br>
 <tr>
 <th rowspan="7">Group Member</th>
 <th>Names</th>
-<th>EECS account                              </th>
+<th>EECS account</th>
 </tr>
   <tr>
     <td> Haorui Zhang</td>
