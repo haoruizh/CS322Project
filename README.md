@@ -3,7 +3,7 @@ The CS 322 project repository.<br>
 <table border="1">
 <tr>
 <th width="180px" border="1" align="center">Team Name</th>
-<td width="390px" border="1" align="center">Parrots</td>
+<td width="350px" border="1" align="center">Parrots</td>
 </tr>
 <tr>
 <th align="center">Project Name</th>
@@ -16,7 +16,7 @@ The CS 322 project repository.<br>
 <tr>
 <th rowspan="7" align="center">Group Member</th>
 <th align="center">Names</th>
-<th width="390px" border="1" align="center">EECS account</th>
+<th width="350px" border="1" align="center">EECS account</th>
 </tr>
   <tr>
     <td align="center"> Haorui Zhang</td>
