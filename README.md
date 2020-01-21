@@ -10,10 +10,14 @@ The CS 322 project repository.<br>
 <td>ParrotChat</td>
 </tr>
 <tr>
-<th rowspan="3">Group Member</th>
-<td>Names</td>
-<td>EECS account</td>
+<th rowspan="6">Group Member</th>
+<th>Names</th>
+<th>EECS account</th>
 </tr>
+  <tr>
+    <td> Haorui Zhang</td>
+    <td> ???</td>
+  </tr>
 </table>
 <h4>Team Name:</h4> Parrot<br> 
 <h4>Project Name:</h4> ParrotChat<br>
