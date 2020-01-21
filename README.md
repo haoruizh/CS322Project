@@ -6,41 +6,41 @@ The CS 322 project repository.<br>
 <td width="360px" border="1" align="center">Parrots</td>
 </tr>
 <tr>
-<th>Project Name</th>
+<th align="center">Project Name</th>
 <td width="360px" border="1" align="center">ParrotChat</td>
 </tr>
 <tr>
-<th>Project repository</th>
+<th align="center">Project repository</th>
   <td width="360px" border="1" align="center">https://github.com/haoruizh/CS322Project</td>
 </tr>
 <tr>
-<th rowspan="7">Group Member</th>
+<th rowspan="7" align="center">Group Member</th>
 <th width="360px" border="1" align="center">Names</th>
 <th width="360px" border="1" align="center">EECS account</th>
 </tr>
   <tr>
-    <td> Haorui Zhang</td>
-    <td> hzhang</td>
+    <td align="center"> Haorui Zhang</td>
+    <td align="center"> hzhang</td>
   </tr>
   <tr>
-    <td> Jihui Sheng</td>
-    <td> jsheng</td>
+    <td align="center"> Jihui Sheng</td>
+    <td align="center"> jsheng</td>
   </tr>
   <tr>
-    <td> Ke Ma</td>
-    <td> kma</td>
+    <td align="center"> Ke Ma</td>
+    <td align="center"> kma</td>
   </tr>
   <tr>
-    <td> Yijing Xiao</td>
-    <td> yxiao</td>
+    <td align="center"> Yijing Xiao</td>
+    <td align="center"> yxiao</td>
   </tr>
   <tr>
-    <td> Jiangquan Li</td>
-    <td> jli4</td>
+    <td align="center"> Jiangquan Li</td>
+    <td align="center"> jli4</td>
   </tr>
   <tr>
-    <td> Xuanfu Huang</td>
-    <td> xhuang1</td>
+    <td align="center"> Xuanfu Huang</td>
+    <td align="center"> xhuang1</td>
   </tr>
 </tr>
 </table>
