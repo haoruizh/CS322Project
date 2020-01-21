@@ -11,7 +11,7 @@ The CS 322 project repository.<br>
 </tr>
 <tr>
 <th>Project repository</th>
-<td>
+  <td>https://github.com/haoruizh/CS322Project</td>
 </tr>
 <tr>
 <th rowspan="7">Group Member</th>
