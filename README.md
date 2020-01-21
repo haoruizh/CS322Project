@@ -16,8 +16,29 @@ The CS 322 project repository.<br>
 </tr>
   <tr>
     <td> Haorui Zhang</td>
-    <td> ???</td>
+    <td> hzhang</td>
   </tr>
+  <tr>
+    <td> Jihui Sheng</td>
+    <td> jsheng</td>
+  </tr>
+  <tr>
+    <td> Ke Ma</td>
+    <td> kma</td>
+  </tr>
+  <tr>
+    <td> Yijing Xiao</td>
+    <td> yxiao</td>
+  </tr>
+  <tr>
+    <td> Jiangquan Li</td>
+    <td> jli4</td>
+  </tr>
+  <tr>
+    <td> Xuanfu Huang</td>
+    <td> xhuang1</td>
+  </tr>
+</tr>
 </table>
 <h4>Team Name:</h4> Parrot<br> 
 <h4>Project Name:</h4> ParrotChat<br>
