@@ -16,7 +16,7 @@ The CS 322 project repository.<br>
 <tr>
 <th rowspan="7">Group Member</th>
 <th>Names</th>
-<th>EECS account</th>
+<th>EECS account                              </th>
 </tr>
   <tr>
     <td> Haorui Zhang</td>
