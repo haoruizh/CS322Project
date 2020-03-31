@@ -6,3 +6,7 @@ https://github.com/Sheyne/chatUI
 https://github.com/trnila/chatui/blob/master/ui.py
 ==>https://github.com/rahchuen/chatproject #这两个clien server code 可以直接使用，第二个相对简单
 ==>https://github.com/SapirWeissbuch/chatproject
+
+这里是curses module
+https://docs.python.org/3/howto/curses.html
+估计都要用
