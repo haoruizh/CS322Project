@@ -10,3 +10,5 @@ https://github.com/trnila/chatui/blob/master/ui.py
 这里是curses module
 https://docs.python.org/3/howto/curses.html
 估计都要用
+tkinter 的一些教程
+https://www.youtube.com/watch?v=YXPyB4XeYLA
