@@ -1,0 +1,8 @@
+一些可以使用的mod，同时可以参考，甚至直接使用。
+可以看看，主要是UI的，如果需要更多可以直接在discord或者微信上告诉我。额，知道我是谁吧。
+主要的UIcode是Java应该是库比较大，但是python的确是相对简单些。
+==>https://github.com/calzoneman/python-chatui #这个的注释可以看看，我觉的解释的挺好
+https://github.com/Sheyne/chatUI
+https://github.com/trnila/chatui/blob/master/ui.py
+==>https://github.com/rahchuen/chatproject #这两个clien server code 可以直接使用，第二个相对简单
+==>https://github.com/SapirWeissbuch/chatproject

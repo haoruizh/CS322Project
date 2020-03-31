@@ -1,5 +1,0 @@
-一些可以使用的mod，同时可以参考，甚至直接使用。
-可以看看，主要是UI的，如果需要更多可以直接在discord或者微信上告诉我。额，知道我是谁吧。
-https://github.com/calzoneman/python-chatui
-https://github.com/Sheyne/chatUI
-https://github.com/SapirWeissbuch/chatproject
