@@ -1,40 +1,56 @@
 import socket
-import json
-from threading import Thread
-
-class Client(Thread):
-    def __init__(self, ip, port):
-        self.client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-        self.client.connect((ip,port))
-        while True:
-            a = input()
-            self.client.send(a.encode("utf-8"))
-            data = self.client.recv(1024)
-            print(data.decode("uft8"))
+import threading
+import sys
 
 class Server:
+    sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+    connections = []
     def __init__(self, ip, port):
-        self.server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-        self.server.bind((ip,port))
-        self.server.listen(5)
-        # connection, address = self.server.accept()
-        while True:
-            connection, address = self.server.accept()
-            client_thread = Thread(target=self.handle_sock, args=(connection,address))
-            data = connection.recv(1024)
-            print(data.decode("utf-8"))
-            a = input("")
-            print(data.decode("uft8"))
-            client_thread.start()
+        self.sock.bind((ip, port))
+        self.sock.listen()
 
-    def handle_sock(self, connection, address):
-        self.connection = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+    # send msg, if no msg break, else send
+    def handler(self, c, a):
         while True:
-            data = connection.recv(1024)
-            b = data.decode("utf-8")
-            print(b)
-            a = input("")
-            self.connection.send(a.encode("utf8"))
+            data = c.recv(1024)
+            for connection in self.connections:
+                connection.send(data)
+            if not data:
+                print(str(a[0]) + ':' + str(a[1], "disconnected"))
+                self.connections.remove(c)
+                c.close()
+                break
+
+    # connection and address should be accept
+    def run(self):
+        while True:
+            c,a = self.sock.accept()
+            cThread = threading.Thread(target=self.handler,args=(c,a))
+            cThread.daemon = True
+            cThread.start()
+            self.connections.append(c)
+            print(str(a[0]) + ':' + str(a[1], "connected"))
+
+class Client:
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    def sendMsg(self):
+        while True:
+            self.sock.send(bytes(input(""),'utf-8'))
+
+    def __init__(self,address,port):
+        self.sock.connect((address, port))
+        iThread = threading.Thread(target=self.sendMsg)
+        iThread.daemon = True
+        iThread.start()
+        while True:
+            data = self.sock.recv(1024)
+            if not data:
+                break
+            print(data)
 
 if __name__ == '__main__':
-    client = Client('127,0,0,1',10086).start()
+    if (len(sys.argv)>1):
+        client = Client(sys.argv[1], 1000)
+    else:
+        server = Server('0.0.0.0', 1000)
+        server.run
