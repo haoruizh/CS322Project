@@ -12,4 +12,9 @@ class UserIdentify:
             self.Password = newPassword
     def GetPassword(self):
         return self.Password
+    def VerifyCheck(self, userName, password):
+        if userName != self.Username or password != self.Password:
+            return False
+        else:
+            return True
     
