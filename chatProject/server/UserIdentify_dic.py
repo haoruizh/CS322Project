@@ -3,6 +3,10 @@ import json
 from UserIdentify import *
 
 class UserIdentify_dic:
+<<<<<<< HEAD
+=======
+    filename = './UserIdentify.txt'
+>>>>>>> 24d9ed0273743bf90f8d8535161fcf4664f6806b
     all_name = {}
     def __init__(self):
         pass

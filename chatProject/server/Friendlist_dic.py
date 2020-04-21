@@ -4,7 +4,7 @@ import openpyxl
 import os
 import Friendlist
 class Friendlist_dict:
-    filename = 'C://Users/Jihui/Documents/GitHub/CS322Project/chatProject/server/friendList.txt'
+    filename = './friendList.txt'
     list_friend = {}
     def __init__(self):
         pass
