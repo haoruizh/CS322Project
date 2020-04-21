@@ -1,13 +1,13 @@
 from socket import *
 import json
 import json
-class UserIdentify:
+# import UserIdentify
+
+class UserIdentify_dic:
     filename = 'C://Users/Jihui/Documents/GitHub/CS322Project/chatProject/server/UserIdentify.txt'
     all_name = {}
     def __init__(self):
         pass
-        # self.username = username
-        # self.password = password
 
     def add_user(self, userName, password):
         if userName not in self.all_name:
@@ -22,16 +22,29 @@ class UserIdentify:
         else:
             # del self.all_name[userName]
             self.all_name.pop(userName)
-            print(self.all_name)
-            print("Deleted!")
+            # print(self.all_name)
 
         json.dump(self.all_name, open(self.filename, 'w'))
 
+    # def verify(self):
+    #     userName = input("Enter ur username: ")
+    #     UserIdentify.Username = userName
+    #     if UserIdentify.Username in self.all_name:
+    #         userPassword = input("Enter password: ")
+    #         UserIdentify.Password = userPassword
+    #         if UserIdentify.Password == self.all_name[UserIdentify.Username]:
+    #             print("Log in successful")
+    #         else:
+    #             print("Fail to login")
+    #     else:
+    #         print("Something wrong on your userName")
+
     def test(self):
-        UserIdentify().add_user('a', '1')
-        UserIdentify().add_user('b', '1')
-        UserIdentify().add_user('a', '2')
-        UserIdentify().remove_user('a')
+        UserIdentify_dic().add_user('a', '1')
+        UserIdentify_dic().add_user('b', '1')
+        UserIdentify_dic().add_user('a', '2')
+        UserIdentify_dic().remove_user('a')
 
 if __name__=='__main__':
-    UserIdentify().test()
+    UserIdentify_dic().test()
+    # UserIdentify_dic().verify()

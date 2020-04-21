@@ -1,7 +1,7 @@
 from socket import *
 import json
 
-class friendlist:
+class Friendlist:
     def __init__(self):
         self.ContactList = []
     def View(self):
