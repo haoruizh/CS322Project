@@ -3,10 +3,6 @@ import json
 from UserIdentify import *
 
 class UserIdentify_dic:
-<<<<<<< HEAD
-=======
-    filename = './UserIdentify.txt'
->>>>>>> 24d9ed0273743bf90f8d8535161fcf4664f6806b
     all_name = {}
     def __init__(self):
         pass
@@ -33,13 +29,14 @@ class UserIdentify_dic:
          if givenUserName not in self.all_name:
              return False
          else:
-             self.all_name[givenUserName].VerifyCheck(givenUserName, givenPassword)
+             return self.all_name[givenUserName].VerifyCheck(givenUserName, givenPassword)
 
     def test(self):
         UserIdentify_dic().add_user('a', '1')
         UserIdentify_dic().add_user('b', '1')
         UserIdentify_dic().add_user('a', '2')
         UserIdentify_dic().remove_user('a')
+        UserIdentify_dic().verify('b', '1')
 
 if __name__=='__main__':
     UserIdentify_dic().test()
