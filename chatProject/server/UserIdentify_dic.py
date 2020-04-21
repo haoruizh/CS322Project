@@ -4,7 +4,7 @@ import json
 # import UserIdentify
 
 class UserIdentify_dic:
-    filename = 'C://Users/Jihui/Documents/GitHub/CS322Project/chatProject/server/UserIdentify.txt'
+    filename = './UserIdentify.txt'
     all_name = {}
     def __init__(self):
         pass
