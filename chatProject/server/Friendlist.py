@@ -1,6 +1,5 @@
 from socket import *
 import json
-
 class Friendlist:
     def __init__(self):
         self.ContactList = []
