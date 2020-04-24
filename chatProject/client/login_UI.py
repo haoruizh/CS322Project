@@ -13,7 +13,6 @@ class login_UI:
         self.background.pack()#put background photo in window
         self.root.resizable(0,0)#fix window size
         self.Login()
-        self.openWindow = []#show window is opened
 
     def Login(self):
         #set front title in Login ui
@@ -32,9 +31,6 @@ class login_UI:
         Button(self.root, text="Change Password", command=self.changePassword,fg='#1E90FF').place(x=360, y=143)
         Button(self.root, text="Login", width = 10, height = 2, fg='#1E90FF').place(x=200, y=200)
 
-    def closeWindow(self):
-        self.openWindow[0].destroy()
-        del self.openWindow[0]
 
     def Resgister(self):
         self.register = Toplevel()
@@ -80,3 +76,31 @@ class login_UI:
         passwordChange = Entry(self.ChangePassword, show="*")
         passwordChange.place(x=210, y=150)
         Button(self.ChangePassword, text="Submit", width=10, height=2, fg='#1E90FF').place(x=200, y=200)
+        
+    def login_data(self,usename,password):
+        if(usename == "")or(password == ""):
+            tkmsg.showinfo(title="Warning",message="usename and password can't be empty")
+        for s in usename:
+            if(s.isdigit() == True):
+                tkmsg.showinfo(title="Warning", message="usename should be alphabet")
+                break
+        if(len(usename) > 20):
+            tkmsg.showinfo(title="Warning", message="usename should be at most 20 alphabet")
+        if(len(password) > 7):
+            tkmsg.showinfo(title="Warning", message="password length should at most 7")
+        data = {"usename" : usename,"password" : password}
+
+    def resgister_data(self,usename,password,reqeatpassword):
+        if(usename == "") or (password == ""):
+            tkmsg.showinfo(title="Warning", message="usename and password can't be empty")
+        if(password != reqeatpassword):
+            tkmsg.showinfo(title="Warning", message="reqeat password is not correct")
+        for s in usename:
+            if(s.isdigit() == True):
+                tkmsg.showinfo(title="Warning", message="usename should be alphabet")
+                break
+        if(len(usename) > 20):
+            tkmsg.showinfo(title="Warning", message="usename should be at most 20 alphabet")
+        if(len(password) > 7):
+            tkmsg.showinfo(title="Warning", message="password length should at most 7")
+        data = {"usename" : usename,"password" : password}
