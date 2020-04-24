@@ -14,12 +14,14 @@ class UserIdentify_dic:
                 data = line.split()
                 self.all_name[data[0]] = data[1]
                 print("load successful!   " + str(data[0]) + "'s password is: " + str(data[1]))
+        file.close()
 
     def add_user(self, userName, password):
         if userName not in self.all_name:
             self.all_name[str(userName)] = password
             with open(self.filename, "a") as file:
                 file.write(userName + ' ' + password + "\n")
+            file.close()
         else:
                 print("Name has already be taken")
 
@@ -37,6 +39,7 @@ class UserIdentify_dic:
                         pass
                     else:
                         file.write(data)
+            file.close()
 
     # def verify(self, givenUserName, givenPassword):
     #      if givenUserName not in self.all_name:
