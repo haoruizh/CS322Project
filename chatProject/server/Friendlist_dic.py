@@ -1,8 +1,8 @@
 from socket import *
 import json
-import openpyxl
+#import openpyxl
 import os
-import Friendlist
+from Friendlist import *
 class Friendlist_dict:
     filename = './friendList.txt'
     list_friend = {}

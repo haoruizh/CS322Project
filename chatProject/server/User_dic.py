@@ -4,7 +4,7 @@ import os
 import openpyxl
 
 
-class User:
+class User_dic:
     filename = 'C://Users/Jihui/Documents/GitHub/CS322Project/chatProject/server/user.txt'
     user_info = {}
     def __init__(self):
@@ -22,9 +22,9 @@ class User:
             print("ID error")
 
     def test(self):
-        User().init_profile('Jihui', 'male', '1994')
-        User().init_profile('Sheng', 'male', '2020')
-        User().init_profile('what', 'male', '2220')
+        User_dic().init_profile('Jihui', 'male', '1994')
+        User_dic().init_profile('Sheng', 'male', '2020')
+        User_dic().init_profile('what', 'male', '2220')
     # def edit_profile(self, ):
     #     pass
 
@@ -32,5 +32,5 @@ class User:
     #     pass
 
 if __name__ == '__main__':
-    User().test()
-    User().show_profile('Jihui')
+    User_dic().test()
+    User_dic().show_profile('Jihui')
