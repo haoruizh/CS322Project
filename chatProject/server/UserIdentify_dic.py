@@ -15,6 +15,14 @@ class UserIdentify_dic:
             w=csv.writer(open(fileStream, "w"))
             for key,val in self.all_name.items():
                 w.writerow([key,val])
+            “““
+            col_num = 0
+            for key, value in self.all_name.items():
+                w.write(0, col_num, key)
+                #w.write_row()
+                w.write_column(1, col_num, value)
+                col_num += 1  
+            “““
             
         elif type =='txt':
             f = open(fileStream, "w")
