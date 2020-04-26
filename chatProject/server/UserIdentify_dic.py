@@ -13,10 +13,10 @@ class UserIdentify_dic:
         pass
 
     def add_user(self, userName, password):
-        #newUser = UserIdentify(userName, password)
+        newUser = UserIdentify(userName, password)
         if userName not in self.all_name:
-            #self.all_name[str(userName)] = newUser
-            self.all_name[str(userName)] = password
+            self.all_name[str(userName)] = newUser.GetPassword()
+            #self.all_name[str(userName)] = password
             json.dump(self.all_name, open(self.filename, 'w'))
         else:
             print("Name has already be taken")
