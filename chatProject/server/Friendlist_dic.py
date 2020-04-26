@@ -1,6 +1,6 @@
 import json
 import os
-import pandas as pd
+#import pandas as pd
 import xlsxwriter
 
 class Friendlist_1:
