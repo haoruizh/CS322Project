@@ -10,7 +10,7 @@ class Friendlist:
         #if searched user not in the list
         if Name not in self.ContactList:
             #If try to add own name, throw an error
-            self.ContactList += (Name, None)
+            self.ContactList.append(Name)
         else:
             print("Searched user already in the list!")
     def Remove(self, Name):
