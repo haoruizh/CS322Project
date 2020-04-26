@@ -2,6 +2,8 @@
 但是如何连接UI
 咱们讨论下
 
+client中加入
+
 if username in usernamedic.viewvalues():
   print(username)
   inputpassward = input("passward: ")
@@ -16,3 +18,8 @@ else:
   create new account.
   直接建立新账户，在这里call user 的function
   建立之后直接进入
+
+server和client中加入
+friend list
+直接call friend list
+
