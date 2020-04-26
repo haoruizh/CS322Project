@@ -15,10 +15,11 @@ class UserIdentify_dic:
             w=csv.writer(open(fileStream, "w"))
             for key,val in self.all_name.items():
                 w.writerow([key,val])
-
+            
         elif type =='txt':
             f = open(fileStream, "w")
-            f.write(str(self.all_name) +'\n')
+            for key, val in self.all_name.items():
+                f.write(key + ' ' + val +'\n')
             f.close()
 
         elif type == 'json':
@@ -32,8 +33,8 @@ class UserIdentify_dic:
     # Add a new user to the dic
     def add_user(self, userName, password):
         #newUser = UserIdentify(userName, password)
-        if userName not in self.all_name:
-            self.all_name[str(userName)] = password
+        if userName not in self.all_name.keys():
+            self.all_name[userName] = password
             #json.dump(self.all_name, open(self.filename, 'w'))
         else:
             #print("Name has already be taken")
@@ -41,7 +42,7 @@ class UserIdentify_dic:
 
     # remove the user from the dic based on given username
     def remove_user(self, userName):
-        if userName not in self.all_name:
+        if userName not in self.all_name.keys():
             #print("Can't find the user")
             return False
         else:
@@ -57,13 +58,15 @@ class UserIdentify_dic:
              return True if self.all_name[givenUserName] == givenPassword else False
 
     def test(self):
-        UserIdentify_dic().add_user('a', '1')
-        UserIdentify_dic().add_user('b', '1')
-        UserIdentify_dic().add_user('a', '2')
-        UserIdentify_dic().remove_user('a')
-        UserIdentify_dic().verify('b', '1')
-        UserIdentify_dic().verify('b', '2')
-        UserIdentify_dic().saveToFile("C:\Users\haoru\Desktop","json")
+        a = UserIdentify_dic()
+        a.add_user('a', '1')
+        a.add_user('b', '1')
+        a.add_user('a', '2')
+        a.remove_user('a')
+        print(a.verify('b', '1'))
+        print(a.verify('b', '2'))
+        a.add_user('c', '2')
+        a.saveToFile("./userIdenDic.csv","csv")
 
 if __name__=='__main__':
     UserIdentify_dic().test()
