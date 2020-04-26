@@ -3,7 +3,7 @@ import json
 from UserIdentify import UserIdentify
 from Friendlist import Friendlist
 
-class User_main:
+class User:
     def __init__(self,username,password):
         self.username = username
         self.password = password
