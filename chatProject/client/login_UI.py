@@ -1,7 +1,8 @@
 from tkinter import *
 from PIL import ImageTk as itk
 import tkinter.font as tkfont
-# from tkinter import ttk
+import tkinter.messagebox as tkmsg
+import re
 
 class login_UI:
     def __init__(self):
@@ -29,8 +30,8 @@ class login_UI:
         #set button for Register,Change Password and Login
         Button(self.root, text="Register",command = self.Resgister,fg='#1E90FF').place(x=360, y=93)
         Button(self.root, text="Change Password", command=self.changePassword,fg='#1E90FF').place(x=360, y=143)
-        Button(self.root, text="Login", width = 10, height = 2, fg='#1E90FF').place(x=200, y=200)
-
+        Button(self.root, text="Login", width = 10, height = 2, fg='#1E90FF',
+               command = lambda :self.login_data(usenameInput.get(),passwordInput.get())).place(x=200, y=200)
 
     def Resgister(self):
         self.register = Toplevel()
@@ -54,7 +55,8 @@ class login_UI:
         Reqeatpassword = Entry(self.register, show="*")
         Reqeatpassword.place(x=210, y=150)
         #提交按钮
-        Button(self.register, text = "Submit",width = 10, height = 2, fg='#1E90FF').place(x=200,y=200)
+        Button(self.register, text = "Submit",width = 10, height = 2, fg='#1E90FF',
+               command = lambda :self.resgister_data(usenameReg.get(),passwordReg.get(),Reqeatpassword.get())).place(x=200,y=200)
 
     def changePassword(self):
         self.ChangePassword = Toplevel()
@@ -76,7 +78,7 @@ class login_UI:
         passwordChange = Entry(self.ChangePassword, show="*")
         passwordChange.place(x=210, y=150)
         Button(self.ChangePassword, text="Submit", width=10, height=2, fg='#1E90FF').place(x=200, y=200)
-        
+
     def login_data(self,usename,password):
         if(usename == "")or(password == ""):
             tkmsg.showinfo(title="Warning",message="usename and password can't be empty")
@@ -93,6 +95,8 @@ class login_UI:
     def resgister_data(self,usename,password,reqeatpassword):
         if(usename == "") or (password == ""):
             tkmsg.showinfo(title="Warning", message="usename and password can't be empty")
+        if(usename.find(" ") != -1) or (password.find(" ") != -1) or (re.search(r"\W",usename) != None) or (re.search(r"\W",password) != None):
+            tkmsg.showinfo(title="Warning", message="usename and password can't be symbol and space")
         if(password != reqeatpassword):
             tkmsg.showinfo(title="Warning", message="reqeat password is not correct")
         for s in usename:
