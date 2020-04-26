@@ -82,8 +82,8 @@ class Friendlist_1:
             file1.write(json.dumps(result))
 
     def txt2csv(self):
-        newCsv = xlsxwriter.Workbook('friendList.csv')
-        worksheet = newCsv.add_worksheet()
+        workbook = xlsxwriter.Workbook('friendList.xlsx')
+        worksheet = workbook.add_worksheet()
         headings = ['User','UsersFriends']
         user = []
         userFriends = []
@@ -96,10 +96,9 @@ class Friendlist_1:
         tData = [user,userFriends]
 
         worksheet.write_row('A1', headings)
-
         worksheet.write_column('A2',tData[0])
         worksheet.write_column('B2',tData[1])
-        newCsv.close()
+        workbook.close()
 
     def removeFriend(self, user, friend):
         for k,v in self.list_friend.items():
