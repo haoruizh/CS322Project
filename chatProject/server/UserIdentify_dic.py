@@ -51,7 +51,7 @@ class UserIdentify_dic:
 
     # Verify the user based on given username and password
     def verify(self, givenUserName, givenPassword):
-         if givenUserName not in self.all_name:
+         if givenUserName not in self.all_name.keys():
              return False
          else:
              return True if self.all_name[givenUserName] == givenPassword else False
