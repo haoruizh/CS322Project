@@ -1,36 +1,63 @@
 from socket import *
 import json
-import os
-import openpyxl
-
+from User import User
 
 class User_dic:
-    filename = 'C://Users/Jihui/Documents/GitHub/CS322Project/chatProject/server/user.txt'
-    user_info = {}
     def __init__(self):
-        pass
+        self.all_user = {}
 
-    def show_profile(self, userName):
-        print(self.user_info[userName])
-        return self.user_info[userName]
-
-    def init_profile(self, userName, sex, birth):
-        if userName not in self.user_info:
-            self.user_info[userName] = {"sex": sex, "birthday":birth}
-            json.dump(self.user_info, open(self.filename, 'w'))
+    def get_user(self,username):
+        if username in self.all_user:
+            return self.all_user[username]
+        
+    def add_new_user(self,username,password):
+        if username not in self.all_user:
+            user = User(username,password)
+            self.all_user[username] = user
         else:
-            print("ID error")
+            print("This user is existed, please go to log in or sign up a new username.")
 
-    def test(self):
-        User_dic().init_profile('Jihui', 'male', '1994')
-        User_dic().init_profile('Sheng', 'male', '2020')
-        User_dic().init_profile('what', 'male', '2220')
-    # def edit_profile(self, ):
-    #     pass
+    def remove_user(self,username):
+        if username in self.all_user:
+            self.all_user.pop(username)
 
-    # def get_notify(self):
-    #     pass
+    def Add_friend(self,username,friendname):
+        if username in self.all_user:
+            friendL = self.all_user[username].add_friend(friendname)
+        else:
+            print("Username is not existed.")
 
-if __name__ == '__main__':
-    User_dic().test()
-    User_dic().show_profile('Jihui')
+    def remove_friend(self,username,friendname):
+        if username in self.all_user:
+            friendL = self.all_user[username].remove_friend(friendname)
+        else:
+            print("Username is not existed.")
+
+    def saveToFile(self,fileStream,filetype):
+        if filetype == 'csv':
+            file = csv.writer(open(fileStream, 'w'))
+            for key,val in self.all_user:
+                file.writerow([key,val])
+
+        elif filetype == 'txt':
+            file = open(fileStream, 'w')
+            file.write(str(self.all_user) + '\n')
+            file.close()
+        elif filetype == 'json':
+            temp = json.dumps(self.all_user)
+            file = open(fileStream, 'w')
+            file.write(temp, indent = 1, sort_keys = True)
+            file.close()
+        else:
+            print('Unsupportable file type.')
+
+    def getFriend(username):
+        friendlist = self.all_user[username].get_Friendlist()
+
+    def get_single_friend(username,friendname):
+        return self.all_user[username].find_friend(friendname)
+
+    def changePssword(username,oldpassword,newpassword):
+        if username in self.all_user:
+            self.all_user[username].change_password(oldpassword,newpassword)
+            
