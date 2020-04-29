@@ -25,3 +25,5 @@ class User:
         return self.friendL.Remove(name)
     def find_friend(self,name):
         return self.friendL.Find(name)
+    def get_Friendlist(self):
+        return self.friendL
