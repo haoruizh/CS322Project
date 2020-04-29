@@ -13,15 +13,15 @@ class UserIdentify_dic:
         if type == 'csv':
             # write all username and password pair as csv file type
             w=csv.writer(open(fileStream, "w"))
-            """ for key,val in self.all_name.items():
-                w.writerow([key,val]) """
+            for key,val in self.all_name.items():
+                w.writerow([key,val])
             #“““
-            col_num = 0
+            """ col_num = 0
             for key, value in self.all_name.items():
                 w.write(0, col_num, key)
                 #w.write_row()也行
                 w.write_column(1, col_num, value)
-                col_num += 1  
+                col_num += 1   """
             #“““
             
         elif type =='txt':
