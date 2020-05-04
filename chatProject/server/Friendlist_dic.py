@@ -1,9 +1,7 @@
 import json
-import os
-#import pandas as pd
 import xlsxwriter
-
-class Friendlist_1:
+import Friendlist
+class Friendlist_dic:
     filename = './friendList.txt'
     list_friend = {}
     def __init__(self):
@@ -16,12 +14,12 @@ class Friendlist_1:
             if len(f) != 0:
                 for line in f:
                     data = line.split()
+                    Friendlist.ContactList = []
                     if data[0] not in self.list_friend:
-                        fList = []
-                        fList.append(data[1])
-                        self.list_friend[data[0]] = fList
+                        Friendlist.ContactList.append(data[1])
+                        self.list_friend[data[0]] = Friendlist.ContactList
                     else:
-                        fList.append(data[1])
+                        Friendlist.ContactList.append(data[1])
             else:
                 print("The file is empty!")
         file.close()
@@ -128,21 +126,21 @@ class Friendlist_1:
     # def removeFriend(self, user, friend):
     #
 
-    def load_friendList(self, user):
-        return self.list_friend[user]
+    def load_friendList(self):
+        return self.list_friend
 
     def display(self):
         print(self.list_friend)
 
     def test(self):
-        Friendlist_1().load_store()
-        Friendlist_1().addFriend('jihui', 'kema')
-        Friendlist_1().addFriend('jihui', 'Jiangquan')
-        Friendlist_1().addFriend('Jiangquan', 'jihui')
-        Friendlist_1().removeFriend('jihui', 'Jiangquan')
-        Friendlist_1().txt2csv()
+        Friendlist_dic().load_store()
+        Friendlist_dic().addFriend('jihui', 'kema')
+        Friendlist_dic().addFriend('jihui', 'Jiangquan')
+        Friendlist_dic().addFriend('Jiangquan', 'jihui')
+        Friendlist_dic().removeFriend('jihui', 'Jiangquan')
+        Friendlist_dic().txt2csv()
 
-        Friendlist_1().display()
+        Friendlist_dic().display()
 #         Friendlist_dict().display()
 if __name__ == "__main__":
-    Friendlist_1().test()
+    Friendlist_dic().test()

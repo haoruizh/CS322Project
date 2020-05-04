@@ -1,0 +1,25 @@
+这是server-client的code
+但是如何连接UI
+咱们讨论下
+
+client中加入
+
+if username in usernamedic.viewvalues():
+  print(username)
+  inputpassward = input("passward: ")
+  if inputpassward in usernamedic.values() :
+    然后就可以用client进行交流，但是问题是如何进行下一步
+    正常流程是输入用户名，然后直接开始聊天，现在多出一这一部分。
+    可以使用while Ture：来完成
+    我认为是可行的，但是现在没法直接验证。
+  else:
+    inputpassward = input("Error/n PLZ try again/npassward: ")
+else:
+  create new account.
+  直接建立新账户，在这里call user 的function
+  建立之后直接进入
+
+server和client中加入
+friend list
+直接call friend list
+

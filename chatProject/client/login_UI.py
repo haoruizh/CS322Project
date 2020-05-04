@@ -8,7 +8,7 @@ class login_UI:
     def __init__(self):
         self.root = Tk()
         self.root.title("Login") #set ui title
-        self.root.geometry("500x300") #set ui height and width
+        self.root.geometry("500x300+500+240") #set ui height and width
         self.photo = itk.PhotoImage(file = "background.png")
         self.background = Label(self.root, image=self.photo)
         self.background.pack()#put background photo in window
@@ -20,22 +20,22 @@ class login_UI:
         font1 = tkfont.Font(family='Fixdsys',size = 20,weight=tkfont.BOLD)
         Label(self.root, text = 'Welcome to Chat',fg='#1E90FF',font = font1).place(x=170,y=30)
         #label the username and Password
-        Label(self.root, text='Username:', fg='#1E90FF').place(x=80, y=92)
-        Label(self.root, text='Password:', fg='#1E90FF').place(x=80, y=142)
+        Label(self.root, text='Username:', fg='#1E90FF').place(x=100, y=92)
+        Label(self.root, text='Password:', fg='#1E90FF').place(x=102, y=152)
         # get input for usename and password
         usenameInput = Entry(self.root)
-        usenameInput.place(x = 160,y=90)
+        usenameInput.place(x = 180,y=90)
         passwordInput = Entry(self.root,show = "*")
-        passwordInput.place(x = 160,y=140)
+        passwordInput.place(x = 180,y=150)
         #set button for Register,Change Password and Login
-        Button(self.root, text="Register",command = self.Resgister,fg='#1E90FF').place(x=360, y=93)
-        Button(self.root, text="Change Password", command=self.changePassword,fg='#1E90FF').place(x=360, y=143)
+        Button(self.root, text="Register",width = 10, height = 2,command = self.Resgister,fg='#1E90FF').place(x=280, y=220)
+        # Button(self.root, text="Change Password", command=self.changePassword,fg='#1E90FF').place(x=360, y=143)
         Button(self.root, text="Login", width = 10, height = 2, fg='#1E90FF',
-               command = lambda :self.login_data(usenameInput.get(),passwordInput.get())).place(x=200, y=200)
+               command = lambda :self.login_data(usenameInput.get(),passwordInput.get())).place(x=130, y=220)
 
     def Resgister(self):
         self.register = Toplevel()
-        self.register.geometry("500x300")
+        self.register.geometry("500x300+500+240")
         self.register.title("Register")
         #设置register页面背景图
         self.photo2 = itk.PhotoImage(file = "background2.png")
@@ -58,30 +58,33 @@ class login_UI:
         Button(self.register, text = "Submit",width = 10, height = 2, fg='#1E90FF',
                command = lambda :self.resgister_data(usenameReg.get(),passwordReg.get(),Reqeatpassword.get())).place(x=200,y=200)
 
-    def changePassword(self):
-        self.ChangePassword = Toplevel()
-        self.ChangePassword.geometry("500x300")
-        self.ChangePassword.title("Change Password")
-        self.photo3 = itk.PhotoImage(file = "background3.png")
-        canvas = Canvas(self.ChangePassword,width = 500, height = 300)
-        canvas.config(highlightthickness=0)
-        canvas.create_image(200,200,image = self.photo3)
-        canvas.pack()
-        self.ChangePassword.resizable(0, 0)
-        Label(self.ChangePassword, text='Username:',fg='#1E90FF').place(x=80, y=52)
-        Label(self.ChangePassword, text='Current Password:',fg='#1E90FF').place(x=80, y=102)
-        Label(self.ChangePassword, text='Change password:',fg='#1E90FF').place(x=80, y=152)
-        usenameCurr = Entry(self.ChangePassword)
-        usenameCurr.place(x = 160,y=50)
-        passwordCurr = Entry(self.ChangePassword,show = "*")
-        passwordCurr.place(x = 210,y=100)
-        passwordChange = Entry(self.ChangePassword, show="*")
-        passwordChange.place(x=210, y=150)
-        Button(self.ChangePassword, text="Submit", width=10, height=2, fg='#1E90FF').place(x=200, y=200)
+    # def changePassword(self):
+    #     self.ChangePassword = Toplevel()
+    #     self.ChangePassword.geometry("500x300+500+240")
+    #     self.ChangePassword.title("Change Password")
+    #     self.photo3 = itk.PhotoImage(file = "background3.png")
+    #     canvas = Canvas(self.ChangePassword,width = 500, height = 300)
+    #     canvas.config(highlightthickness=0)
+    #     canvas.create_image(200,200,image = self.photo3)
+    #     canvas.pack()
+    #     self.ChangePassword.resizable(0, 0)
+    #     Label(self.ChangePassword, text='Username:',fg='#1E90FF').place(x=80, y=52)
+    #     Label(self.ChangePassword, text='Current Password:',fg='#1E90FF').place(x=80, y=102)
+    #     Label(self.ChangePassword, text='Change password:',fg='#1E90FF').place(x=80, y=152)
+    #     usenameCurr = Entry(self.ChangePassword)
+    #     usenameCurr.place(x = 160,y=50)
+    #     passwordCurr = Entry(self.ChangePassword,show = "*")
+    #     passwordCurr.place(x = 210,y=100)
+    #     passwordChange = Entry(self.ChangePassword, show="*")
+    #     passwordChange.place(x=210, y=150)
+    #     Button(self.ChangePassword, text="Submit", width=10, height=2, fg='#1E90FF',
+    #            command = lambda :self.changepassword_data(usenameCurr.get(),passwordCurr.get(),passwordChange.get())).place(x=200, y=200)
 
     def login_data(self,usename,password):
         if(usename == "")or(password == ""):
             tkmsg.showinfo(title="Warning",message="usename and password can't be empty")
+        if(usename.find(" ") != -1) or (password.find(" ") != -1) or (re.search(r"\W",usename) != None) or (re.search(r"\W",password) != None):
+            tkmsg.showinfo(title="Warning", message="usename and password can't be symbol and space")
         for s in usename:
             if(s.isdigit() == True):
                 tkmsg.showinfo(title="Warning", message="usename should be alphabet")
@@ -108,3 +111,7 @@ class login_UI:
         if(len(password) > 7):
             tkmsg.showinfo(title="Warning", message="password length should at most 7")
         data = {"usename" : usename,"password" : password}
+
+    # def changepassword_data(self,username,currentpassword,passwordchange):
+    #     if(currentpassword == passwordchange):
+    #         tkmsg.showinfo(title="Warning", message="usename and password can't be symbol and space")
