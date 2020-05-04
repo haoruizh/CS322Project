@@ -2,7 +2,7 @@ import socket
 import select
 from UserIdentify_dic import UserIdentify_dic
 
-HEADER_LENGTH = 10
+HEADER_LENGTH = 100
 
 IP = "127.0.0.1"
 PORT = 1234
@@ -29,10 +29,11 @@ sockets_list = [server_socket]
 
 # List of connected clients - socket as a key, user header and name as data # password
 clients = {}
-usern = {}
-userp = {}
-userdic = UserIdentify_dic()
 
+userdic = UserIdentify_dic()
+#userlist = {}
+
+message_list = []
 
 print(f'Listening for connections on {IP}:{PORT}...')
 
@@ -74,12 +75,12 @@ while True:
             # Accept new connection
             # That gives us new socket - client socket, connected to this given client only, it's unique for that client
             # The other returned object is ip/port set
-            client_socket, client_socket1, client_socket2, client_address = server_socket.accept()
+            client_socket, client_address = server_socket.accept()
 
             # Client should send his name right away, receive it
+
             user = receive_message(client_socket)
-            username = receive_message(client_socket1)
-            userpassword = receive_message(client_socket2)
+
 
             # If False - client disconnected before he sent his name
             if user is False:
@@ -90,19 +91,16 @@ while True:
 
             # Also save username and username header
             clients[client_socket] = user
-            usern[client_socket1] = username
-            userp[client_socket2] = userpassword
-            if userdic.verify(usern['data'].decode('utf-8'),userp['data'].decode('utf-8')):
-                print('Accepted new connection from {}:{}, username: {}'.format(*client_address, user['data'].decode('utf-8')))
-            else:
-                False
+
+            print('Accepted new connection from {}:{}, username: {}'.format(*client_address, user['data'].decode('utf-8')))
+
+
 
         # Else existing socket is sending a message
         else:
 
             # Receive message
             message = receive_message(notified_socket)
-
             # If False, client disconnected, cleanup
             if message is False:
                 print('Closed connection from: {}'.format(clients[notified_socket]['data'].decode('utf-8')))
@@ -118,7 +116,21 @@ while True:
             # Get user by notified socket, so we will know who sent the message
             user = clients[notified_socket]
 
+ 
+
             print(f'Received message from {user["data"].decode("utf-8")}: {message["data"].decode("utf-8")}')
+            message_list.append(message["data"].decode("utf-8"))
+            while len(message_list) == 3:
+                if message_list[0] == "Register":
+                    userdic.add_user(message_list[1], message_list[2])
+                elif message_list[0] == "Login":
+                    if userdic.verify(message_list[1], message_list[2]):
+                        print(f'Received message from {user["data"].decode("utf-8")}: {message["data"].decode("utf-8")}')
+                    else:
+                        False
+                else:
+                    False
+
 
             # Iterate over connected clients and broadcast message
             for client_socket in clients:
