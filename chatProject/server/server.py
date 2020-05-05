@@ -121,7 +121,8 @@ while True:
             user = clients[notified_socket]
 
             print(f'Received message from {user["data"].decode("utf-8")}: {message["data"].decode("utf-8")}')
-            message_list.append(message["data"].decode("utf-8"))
+            #message_list.append(message["data"].decode("utf-8"))
+            """
             # Before it send message to other people
             while len(message_list) == 3:
                 if message_list[1] == "register":
@@ -131,15 +132,15 @@ while True:
                         True
                 else:
                     False
-            while True:
-                    # Iterate over connected clients and broadcast message
-                    # Share message to everone
-                for client_socket in clients:
-                    # But don't sent it to sender
-                    if client_socket != notified_socket:
-                        # Send user and message (both with their headers)
-                        # We are reusing here message header sent by sender, and saved username header send by user when he connected
-                        client_socket.send(user['header'] + user['data'] + message['header'] + message['data'])
+            """
+            # Iterate over connected clients and broadcast message
+            # Share message to everone
+            for client_socket in clients:
+                # But don't sent it to sender
+                if client_socket != notified_socket:
+                    # Send user and message (both with their headers)
+                    # We are reusing here message header sent by sender, and saved username header send by user when he connected
+                    client_socket.send(user['header'] + user['data'] + message['header'] + message['data'])
 
 
     # It's not really necessary to have this, but will handle some socket exceptions just in case
