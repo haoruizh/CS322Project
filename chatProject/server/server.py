@@ -15,6 +15,7 @@ server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # SO_ - socket option
 # SOL_ - socket option level
 # Sets REUSEADDR (as a socket option) to 1 on socket
+# Rconnect
 server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
 # Bind, so server informs operating system that it's going to use given IP and port
@@ -25,9 +26,10 @@ server_socket.bind((IP, PORT))
 server_socket.listen()
 
 # List of sockets for select.select()
+# Mange a list of client
 sockets_list = [server_socket]
 
-# List of connected clients - socket as a key, user header and name as data # password
+# List of connected clients -  socket as a key, user header and name as data # password
 clients = {}
 
 userdic = UserIdentify_dic()
@@ -53,6 +55,7 @@ def receive_message(client_socket):
         message_length = int(message_header.decode('utf-8').strip())
 
         # Return an object of message header and message data
+        # rev message whatever it length is
         return {'header': message_header, 'data': client_socket.recv(message_length)}
 
     except:
@@ -62,7 +65,7 @@ def receive_message(client_socket):
         return False
 
 while True:
-    
+    # Read list Write list Socket might Error
     read_sockets, _, exception_sockets = select.select(sockets_list, [], sockets_list)
 
 
@@ -101,6 +104,7 @@ while True:
 
             # Receive message
             message = receive_message(notified_socket)
+
             # If False, client disconnected, cleanup
             if message is False:
                 print('Closed connection from: {}'.format(clients[notified_socket]['data'].decode('utf-8')))
@@ -116,31 +120,27 @@ while True:
             # Get user by notified socket, so we will know who sent the message
             user = clients[notified_socket]
 
- 
-
             print(f'Received message from {user["data"].decode("utf-8")}: {message["data"].decode("utf-8")}')
             message_list.append(message["data"].decode("utf-8"))
+            # Before it send message to other people
             while len(message_list) == 3:
-                if message_list[0] == "Register":
-                    userdic.add_user(message_list[1], message_list[2])
-                elif message_list[0] == "Login":
-                    if userdic.verify(message_list[1], message_list[2]):
-                        print(f'Received message from {user["data"].decode("utf-8")}: {message["data"].decode("utf-8")}')
-                    else:
-                        False
+                if message_list[1] == "register":
+                    userdic.add_user(message_list[2], message_list[3])
+                elif message_list[1] == "login":
+                    if userdic.verify(message_list[2], message_list[3]):
+                        True
                 else:
                     False
+            while True:
+                    # Iterate over connected clients and broadcast message
+                    # Share message to everone
+                for client_socket in clients:
+                    # But don't sent it to sender
+                    if client_socket != notified_socket:
+                        # Send user and message (both with their headers)
+                        # We are reusing here message header sent by sender, and saved username header send by user when he connected
+                        client_socket.send(user['header'] + user['data'] + message['header'] + message['data'])
 
-
-            # Iterate over connected clients and broadcast message
-            for client_socket in clients:
-
-                # But don't sent it to sender
-                if client_socket != notified_socket:
-
-                    # Send user and message (both with their headers)
-                    # We are reusing here message header sent by sender, and saved username header send by user when he connected
-                    client_socket.send(user['header'] + user['data'] + message['header'] + message['data'])
 
     # It's not really necessary to have this, but will handle some socket exceptions just in case
     for notified_socket in exception_sockets:
