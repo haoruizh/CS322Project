@@ -15,7 +15,7 @@ if choose == "register":
     userdic.add_user(my_username, my_password)
 elif choose == "login":
     userdic.verify(my_username, my_password)
-    
+
     # Create a socket
     # socket.AF_INET - address family, IPv4, some otehr possible are AF_INET6, AF_BLUETOOTH, AF_UNIX
     # socket.SOCK_STREAM - TCP, conection-based, socket.SOCK_DGRAM - UDP, connectionless, datagrams, socket.SOCK_RAW - raw IP packets
@@ -52,7 +52,11 @@ elif choose == "login":
             message = message.encode('utf-8')
             message_header = f"{len(message):<{HEADER_LENGTH}}".encode('utf-8')
             client_socket.send(message_header + message)
-
+            #add friend firendlist could be list, waiting team done this part
+            if message.decode('utf-8') == "addfriend":
+                addfriend(message.decode('utf-8'))
+            elif message.decode('utf-8') == "showmefriendlist":
+                friendlist()
         try:
             # Now we want to loop over received messages (there might be more than one) and print them
             while True:
@@ -77,17 +81,7 @@ elif choose == "login":
                 message = client_socket.recv(message_length).decode('utf-8')
 
                 # Print message
-                input(f'COMD: Register | Login: > {message}')
-                if message == "Register":
-                    input("userName: ")
-                    input("userName: ")
-                elif message == "Login":
-                    input("userName: ")
-                    input("userName: ")
-                else:
-                    input(f'{username} COMD: Register | Login: > {message}')
                 print(f'{username} > {message}')
-
 
 
 
