@@ -27,3 +27,15 @@ class User:
         return self.friendL.Find(name)
     def get_Friendlist(self):
         return self.friendL
+    def test(self):
+        User('sherry',123).get_name()
+        User('sherry',123).get_password()
+        User('sherry',123).change_password(123,12345)
+        User('sherry',123).add_friend('amy')
+        User('sherry',123).add_friend('someone')
+        User('sherry',123).remove_friend('someone')
+        User('sherry',123).get_Friendlist()
+
+
+if __name__ == '__main__':
+    User('sherry',123).test()
