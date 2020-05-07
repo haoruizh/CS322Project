@@ -8,14 +8,14 @@ HEADER_LENGTH = 100
 
 IP = "127.0.0.1"
 PORT = 1234
-choose = ("login or register: ")
+choose = input("login or register: ")
 my_username = input("Username: ")
 my_password = input("Password: ")
 if choose == "register":
     userdic.add_user(my_username, my_password)
 elif choose == "login":
     userdic.verify(my_username, my_password)
-while True:
+    
     # Create a socket
     # socket.AF_INET - address family, IPv4, some otehr possible are AF_INET6, AF_BLUETOOTH, AF_UNIX
     # socket.SOCK_STREAM - TCP, conection-based, socket.SOCK_DGRAM - UDP, connectionless, datagrams, socket.SOCK_RAW - raw IP packets
