@@ -57,6 +57,14 @@ elif choose == "login":
                 addfriend(message.decode('utf-8'))
             elif message.decode('utf-8') == "showmefriendlist":
                 friendlist()
+            elif message.decode('utf-8') == "showmypasword"
+                #it depends
+                with open('userlist.txt') as read_file:
+                for line in read_file:  
+                    line = line.strip() 
+                    if line == my_username:
+                        password = next(read_file)
+                        break
         try:
             # Now we want to loop over received messages (there might be more than one) and print them
             while True:
