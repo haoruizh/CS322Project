@@ -9,20 +9,12 @@ class UserIdentify_dic:
     
     # save all_name content to given file based on type
     # seperate by a space
-    def saveToFile(self, fileStream, type):
+    def saveToFile(self, fileStream="./userIdenDic.txt", type="txt"):
         if type == 'csv':
             # write all username and password pair as csv file type
             w=csv.writer(open(fileStream, "w"))
             for key,val in self.all_name.items():
                 w.writerow([key,val])
-            #“““
-            """ col_num = 0
-            for key, value in self.all_name.items():
-                w.write(0, col_num, key)
-                #w.write_row()也行
-                w.write_column(1, col_num, value)
-                col_num += 1   """
-            #“““
             
         elif type =='txt':
             f = open(fileStream, "w")
@@ -80,13 +72,13 @@ class UserIdentify_dic:
     def test(self):
         a = UserIdentify_dic()
         a.add_user('a', '1')
-        a.add_user('b', '1')
+        a.add_user('e', '1')
         a.add_user('a', '2')
         a.remove_user('a')
         print(a.verify('b', '1'))
         print(a.verify('b', '2'))
         a.add_user('c', '2')
-        a.saveToFile("./userIdenDic.csv","csv")
+        a.saveToFile("./userIdenDic.txt","txt")
 
 if __name__=='__main__':
     UserIdentify_dic().test()
