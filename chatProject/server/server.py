@@ -140,7 +140,7 @@ while True:
             for client_socket in clients:
                 # But don't sent it to sender
                 if client_socket != notified_socket:
-                    if message["data"].decode("utf-8") == 
+                    #if message["data"].decode("utf-8") == 
                     # Send user and message (both with their headers)
                     # We are reusing here message header sent by sender, and saved username header send by user when he connected
                     client_socket.send(user['header'] + user['data'] + message['header'] + message['data'])
