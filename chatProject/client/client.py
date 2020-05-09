@@ -13,17 +13,17 @@ my_username = input("Username: ")
 my_password = input("Password: ")
 if choose == "register":
     #userdic.add_user(my_username, my_password)
-    file = open("userfckingname.txt","w")
+    file = open("someusername.txt","a")
     file.writelines(my_username+' '+ my_password+'\n')
     file.close()
     #print(userdic.all_name)
 elif choose == "login":
     #userdic.verify(my_username,my_password)
-    userfile = open("userfckingname.txt","r")
+    userfile = open("someusername.txt","r")
     for i in userfile.readlines():
-        userfkingname = i.split()[0]
-        userfkingpassword = i.split()[1]
-        userdic.add_user(userfkingname,userfkingpassword)
+        usertxtname = i.split()[0]
+        usertxtpassword = i.split()[1]
+        userdic.add_user(usertxtname,usertxtpassword)
     success = userdic.verify(my_username, my_password)
     if success is True:
         # Create a socket
