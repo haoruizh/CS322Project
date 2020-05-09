@@ -122,6 +122,9 @@ while True:
 
             print(f'Received message from {user["data"].decode("utf-8")}: {message["data"].decode("utf-8")}')
             message_list.append(message["data"])
+            file = open("scr.txt","a")
+            file.writelines(message["data"].decode("utf-8") +'\n')
+            file.close()
             
             #message_list.append(message["data"].decode("utf-8"))
             """
